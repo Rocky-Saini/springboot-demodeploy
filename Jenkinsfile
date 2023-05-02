@@ -7,8 +7,8 @@ node {
          stage('Clone Repo') {
             // for display purposes
             // Get some code from a GitHub repository
-            git url: 'https://gitlab.com/gpranataAsyst/springboot-demodeploy.git',
-                credentialsId: 'springdeploy-user',
+            git url: 'https://github.com/Rocky-Saini/springboot-demodeploy.git',
+                credentialsId: 'gitvala',
                 branch: 'main'
          }
           stage('Build docker') {
@@ -47,7 +47,7 @@ def notifyBuild(String buildStatus = 'STARTED'){
 
   // Email notification
     emailext (
-         to: "admin@gmail.com",
+         to: "rocky.saini.java@gmail.com",
          subject: subject_email,
          body: details,
          recipientProviders: [[$class: 'DevelopersRecipientProvider']]
