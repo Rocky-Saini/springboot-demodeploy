@@ -1,5 +1,5 @@
 # Docker Build Stage
-FROM maven:3-jdk-8-alpine AS build
+FROM maven
 
 
 # Build Stage
@@ -10,7 +10,7 @@ RUN mvn clean install -DskipTests
 
 
 # Docker Build Stage
-FROM openjdk:8-jdk-alpine
+FROM openjdk
 
 COPY --from=build /opt/app/target/*.jar app.jar
 
